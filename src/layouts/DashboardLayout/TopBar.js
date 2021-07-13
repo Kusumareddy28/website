@@ -15,8 +15,15 @@ import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import InputIcon from '@material-ui/icons/Input';
 import Logo from 'src/components/Logo';
+import MoreIcon from '@material-ui/icons/MoreVert'
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
+  sectionDesktop: {
+    display:"none",
+    [theme.breakpoints.up("md")]:{
+      display:"flex",
+    }
+  },
   root: {},
   avatar: {
     width: 60,
@@ -65,6 +72,17 @@ const TopBar = ({
             <MenuIcon />
           </IconButton>
         </Hidden>
+        <div className={classes.sectionDesktop}>
+          <Button color="inherit" component = {Link} to="/">
+            Teachers
+          </Button>
+          <Button color="inherit" component = {Link} to="/">
+            Volunteers
+          </Button>
+        </div>
+        <IconButton>
+          <MoreIcon/>
+        </IconButton>
       </Toolbar>
     </AppBar>
   );
